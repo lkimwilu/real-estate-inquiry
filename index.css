@@ -1,4 +1,4 @@
-/* styles.css */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -43,6 +43,65 @@ button:hover {
     background-color: #2980b9;
 }
 
+/* Property List Styles */
+#property-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.property-item {
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: calc(50% - 20px); /* Adjust to ensure two items fit per row */
+}
+
+.property-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 .hidden {
     display: none;
+}
+
+/* General styling for select elements */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styling for options within the select */
+select option {
+    color: #333;
+    background-color: white;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Placeholder styling for the selected disabled option */
+select option[disabled] {
+    color: #aaa;
+}
+
+/* Hover effect for the select element */
+select:hover {
+    border-color: #3498db;
+}
+
+/* Focus effect for the select element */
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }

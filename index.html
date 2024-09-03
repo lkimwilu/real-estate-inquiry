@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,33 +10,57 @@
     <div id="app">
         <h1>Real Estate Inquiry System</h1>
         
-        <!-- Login Form -->
-        <div id="login-container">
-            <h2>Login</h2>
+        <!-- Signup Form -->
+        <div id="signup-container">
+            <h2>Sign Up</h2>
+            <input type="text" id="first-name" placeholder="First Name">
+            <input type="text" id="last-name" placeholder="Last Name">
+            <select id="gender">
+                <option value="" disabled selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
             <input type="email" id="email" placeholder="Email">
             <input type="password" id="password" placeholder="Password">
-            <button id="login-btn">Login</button>
             <button id="signup-btn">Sign Up</button>
+            <p>Already have an account? <button id="show-login-btn">Login</button></p>
         </div>
 
-        <!-- Inquiry Form -->
+        <!-- Login Form (Initially Hidden) -->
+        <div id="login-container" class="hidden">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <p>Don't have an account? <button id="show-signup-btn">Sign Up</button></p>
+        </div>
+
+        <!-- Property List and Other Sections -->
+        <div id="property-list-container" class="hidden">
+            <h2>Available Properties</h2>
+            <div id="property-list">
+                <!-- Property items will be dynamically added here -->
+            </div>
+        </div>
+
         <div id="inquiry-form-container" class="hidden">
             <h2>Submit Inquiry</h2>
-            <input type="text" id="property-id" placeholder="Property ID">
+            <input type="text" id="property-id" placeholder="Property ID" readonly>
             <textarea id="inquiry-message" placeholder="Your Message"></textarea>
             <button id="submit-inquiry-btn">Submit Inquiry</button>
         </div>
 
-        <!-- View Inquiries -->
         <div id="inquiries-container" class="hidden">
             <h2>Your Inquiries</h2>
             <ul id="inquiry-list"></ul>
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <script src="app.js"></script>
+    <!-- Marking scripts as modules -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js" type="module"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
