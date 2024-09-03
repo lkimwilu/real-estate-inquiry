@@ -177,38 +177,44 @@ async function loadProperties() {
     <p>${property.name}</p>
 `;
 
+    // Open the inquiry modal
     propertyItem.addEventListener("click", () => {
-      // Display the inquiry form
-      inquiryFormContainer.classList.remove("hidden");
-      inquiriesContainer.classList.add("hidden");
+      // Display the inquiry form modal
+      document.getElementById("inquiry-modal").classList.remove("hidden");
       document.getElementById("property-id").value = property.id;
     });
+
+    // Close the inquiry modal
+    document
+      .getElementById("close-inquiry-modal")
+      .addEventListener("click", () => {
+        document.getElementById("inquiry-modal").classList.add("hidden");
+      });
 
     propertyList.appendChild(propertyItem);
   });
 }
 
 // Submit inquiry
-document
-  .getElementById("submit-inquiry-btn")
-  .addEventListener("click", async () => {
+document.getElementById("submit-inquiry-btn").addEventListener("click", async () => {
     const propertyId = document.getElementById("property-id").value;
     const inquiryMessage = document.getElementById("inquiry-message").value;
     const user = auth.currentUser;
 
     if (user && propertyId && inquiryMessage) {
-      try {
-        await addDoc(collection(db, "inquiries"), {
-          userId: user.uid,
-          propertyId: propertyId,
-          message: inquiryMessage,
-          timestamp: new Date(),
-        });
-        alert("Inquiry submitted successfully");
-      } catch (error) {
-        console.error("Error submitting inquiry: ", error);
-      }
+        try {
+            await addDoc(collection(db, "inquiries"), {
+                userId: user.uid,
+                propertyId: propertyId,
+                message: inquiryMessage,
+                timestamp: new Date(),
+            });
+            alert("Inquiry submitted successfully");
+            document.getElementById("inquiry-modal").classList.add("hidden");
+        } catch (error) {
+            console.error("Error submitting inquiry: ", error);
+        }
     } else {
-      alert("Please fill out the inquiry form completely.");
+        alert("Please fill out the inquiry form completely.");
     }
-  });
+});
