@@ -44,11 +44,15 @@
             </div>
         </div>
 
-        <div id="inquiry-form-container" class="hidden">
-            <h2>Submit Inquiry</h2>
-            <input type="text" id="property-id" placeholder="Property ID" readonly>
-            <textarea id="inquiry-message" placeholder="Your Message"></textarea>
-            <button id="submit-inquiry-btn">Submit Inquiry</button>
+        <!-- Inquiry Form Modal (Initially Hidden) -->
+        <div id="inquiry-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" id="close-inquiry-modal">&times;</span>
+                <h2>Submit Inquiry</h2>
+                <input type="text" id="property-id" placeholder="Property ID" readonly>
+                <textarea id="inquiry-message" placeholder="Your Message"></textarea>
+                <button id="submit-inquiry-btn">Submit Inquiry</button>
+            </div>
         </div>
 
         <div id="inquiries-container" class="hidden">
