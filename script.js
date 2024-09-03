@@ -116,52 +116,52 @@ async function loadProperties() {
     {
       id: "property1",
       name: "Modern House",
-      imageUrl: "https://source.unsplash.com/1600x900/?house,modern",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1689609950112-d66095626efb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property2",
       name: "Luxury Villa",
-      imageUrl: "https://source.unsplash.com/1600x900/?villa,luxury",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1661876449499-26de7959878f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property3",
       name: "Urban Apartment",
-      imageUrl: "https://source.unsplash.com/1600x900/?apartment,urban",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1686782502813-51579b55f6d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property4",
       name: "Beachfront Property",
-      imageUrl: "https://source.unsplash.com/1600x900/?beach,house",
+      imageUrl: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property5",
       name: "Rustic Cabin",
-      imageUrl: "https://source.unsplash.com/1600x900/?cabin,rustic",
+      imageUrl: "https://images.unsplash.com/photo-1647996179012-66b87eba3d17?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property6",
       name: "Countryside Estate",
-      imageUrl: "https://source.unsplash.com/1600x900/?estate,countryside",
+      imageUrl: "https://images.unsplash.com/photo-1605146768851-eda79da39897?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property7",
       name: "Skyscraper Condo",
-      imageUrl: "https://source.unsplash.com/1600x900/?condo,skyscraper",
+      imageUrl: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property8",
       name: "Mountain Chalet",
-      imageUrl: "https://source.unsplash.com/1600x900/?chalet,mountain",
+      imageUrl: "https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property9",
       name: "Suburban Home",
-      imageUrl: "https://source.unsplash.com/1600x900/?suburban,home",
+      imageUrl: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property10",
       name: "Penthouse Suite",
-      imageUrl: "https://source.unsplash.com/1600x900/?penthouse,suite",
+      imageUrl: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
