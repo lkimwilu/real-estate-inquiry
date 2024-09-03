@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Inquiry System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Real Estate Inquiry System</h1>
+        
+        <!-- Login Form -->
+        <div id="login-container">
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div id="inquiry-form-container" class="hidden">
+            <h2>Submit Inquiry</h2>
+            <input type="text" id="property-id" placeholder="Property ID">
+            <textarea id="inquiry-message" placeholder="Your Message"></textarea>
+            <button id="submit-inquiry-btn">Submit Inquiry</button>
+        </div>
+
+        <!-- View Inquiries -->
+        <div id="inquiries-container" class="hidden">
+            <h2>Your Inquiries</h2>
+            <ul id="inquiry-list"></ul>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
