@@ -166,12 +166,16 @@ async function loadProperties() {
   ];
 
   properties.forEach((property) => {
+    // Example property item
     const propertyItem = document.createElement("div");
     propertyItem.className = "property-item";
     propertyItem.innerHTML = `
-            <img src="${property.imageUrl}" alt="${property.name}">
-            <p>${property.name}</p>
-        `;
+    <div class="property-image">
+        <img src="${property.imageUrl}" alt="${property.name}">
+        <div class="overlay">Inquire Now</div>
+    </div>
+    <p>${property.name}</p>
+`;
 
     propertyItem.addEventListener("click", () => {
       // Display the inquiry form
