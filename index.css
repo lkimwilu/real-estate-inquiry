@@ -281,3 +281,6 @@ select:focus {
     .landing-buttons button:hover {
         background-color: #2980b9;
     }
+    #logout-btn{
+        margin: 20px;
+    }
