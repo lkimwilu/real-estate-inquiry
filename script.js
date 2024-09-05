@@ -1,10 +1,15 @@
+// Imports end here
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+
+// here we are getting the methods from firebase-auth
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+// here we are getting the methods from firestore
 import {
   getFirestore,
   collection,
@@ -12,6 +17,8 @@ import {
   setDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+// Imports end here
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -38,6 +45,12 @@ const propertyListContainer = document.getElementById(
 );
 const inquiriesContainer = document.getElementById("inquiries-container");
 const propertyList = document.getElementById("property-list");
+
+
+// add event listener to go back to login
+document.getElementById("go_back").addEventListener('click', function() {
+  window.location.href = '/home.html';
+});
 
 // Event listeners to toggle between login and signup forms
 document.getElementById("show-login-btn").addEventListener("click", () => {
@@ -87,6 +100,7 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
     alert("Please fill out all fields.");
   }
 });
+
 // Login functionality
 document.getElementById("login-btn").addEventListener("click", () => {
   const email = document.getElementById("login-email").value;
@@ -94,7 +108,7 @@ document.getElementById("login-btn").addEventListener("click", () => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("User logged in: ", userCredential.user);
+      console.log("User logged sucessfully: ", userCredential.user);
       loginContainer.classList.add("hidden");
       propertyListContainer.classList.remove("hidden");
       loadProperties(); // Load properties when the user is authenticated
