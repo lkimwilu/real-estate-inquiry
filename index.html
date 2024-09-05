@@ -10,7 +10,6 @@
 
 <body>
     <div id="app">
-
         <!-- Signup Form -->
         <div id="signup-container">
             <h2>Sign Up</h2>
@@ -28,7 +27,7 @@
             <p>Already have an account? <button id="show-login-btn">Login</button></p>
         </div>
 
-        <!-- Login Form (Initially Hidden) -->
+        <!-- Login Form -->
         <div id="login-container" class="hidden">
             <h2>Login</h2>
             <input type="email" id="login-email" placeholder="Email">
@@ -37,17 +36,16 @@
             <p>Don't have an account? <button id="show-signup-btn">Sign Up</button></p>
         </div>
 
-        <!-- Property List and Other Sections -->
+        <!-- Property List -->
         <div id="property-list-container" class="hidden">
             <h2>Available Properties</h2>
             <button id="logout-btn">Logout</button>
             <div id="property-list">
                 <!-- Property items will be dynamically added here -->
             </div>
-            <button id="logout-btn">Logout</button>
         </div>
 
-        <!-- Inquiry Form Modal (Initially Hidden) -->
+        <!-- Inquiry Form Modal -->
         <div id="inquiry-modal" class="modal hidden">
             <div class="modal-content">
                 <span class="close-btn" id="close-inquiry-modal">&times;</span>
@@ -64,7 +62,6 @@
         </div>
     </div>
 
-    <!-- Marking scripts as modules -->
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js" type="module"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js" type="module"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js" type="module"></script>

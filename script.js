@@ -38,10 +38,7 @@ const propertyListContainer = document.getElementById("property-list-container")
 const inquiriesContainer = document.getElementById("inquiries-container");
 const propertyList = document.getElementById("property-list");
 
-// Event listener to go back to login
-document.getElementById("go_back").addEventListener('click', function() {
-  window.location.href = '/home.html';
-});
+
 
 // Event listeners to toggle between login and signup forms
 document.getElementById("show-login-btn").addEventListener("click", () => {
