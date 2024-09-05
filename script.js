@@ -1,15 +1,12 @@
-// Imports end here
+// Imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-
-// here we are getting the methods from firebase-auth
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-
-// here we are getting the methods from firestore
 import {
   getFirestore,
   collection,
@@ -17,8 +14,6 @@ import {
   setDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-
-// Imports end here
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -39,15 +34,11 @@ const db = getFirestore(app);
 // Elements
 const signupContainer = document.getElementById("signup-container");
 const loginContainer = document.getElementById("login-container");
-const inquiryFormContainer = document.getElementById("inquiry-form-container");
-const propertyListContainer = document.getElementById(
-  "property-list-container"
-);
+const propertyListContainer = document.getElementById("property-list-container");
 const inquiriesContainer = document.getElementById("inquiries-container");
 const propertyList = document.getElementById("property-list");
 
-
-// add event listener to go back to login
+// Event listener to go back to login
 document.getElementById("go_back").addEventListener('click', function() {
   window.location.href = '/home.html';
 });
@@ -73,11 +64,7 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
 
   if (firstName && lastName && gender && email && password) {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log("User signed up: ", user);
 
@@ -108,7 +95,7 @@ document.getElementById("login-btn").addEventListener("click", () => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("User logged sucessfully: ", userCredential.user);
+      console.log("User logged in successfully: ", userCredential.user);
       loginContainer.classList.add("hidden");
       propertyListContainer.classList.remove("hidden");
       loadProperties(); // Load properties when the user is authenticated
@@ -130,7 +117,7 @@ onAuthStateChanged(auth, (user) => {
     signupContainer.classList.remove("hidden");
     loginContainer.classList.add("hidden");
     propertyListContainer.classList.add("hidden");
-    inquiryFormContainer.classList.add("hidden");
+    inquiriesContainer.classList.add("hidden");
   }
 });
 
@@ -141,62 +128,52 @@ async function loadProperties() {
     {
       id: "property1",
       name: "Modern House",
-      imageUrl:
-        "https://plus.unsplash.com/premium_photo-1689609950112-d66095626efb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1689609950112-d66095626efb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property2",
       name: "Luxury Villa",
-      imageUrl:
-        "https://plus.unsplash.com/premium_photo-1661876449499-26de7959878f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1661876449499-26de7959878f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property3",
       name: "Urban Apartment",
-      imageUrl:
-        "https://plus.unsplash.com/premium_photo-1686782502813-51579b55f6d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1686782502813-51579b55f6d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property4",
       name: "Beachfront Property",
-      imageUrl:
-        "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property5",
       name: "Rustic Cabin",
-      imageUrl:
-        "https://images.unsplash.com/photo-1647996179012-66b87eba3d17?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1647996179012-66b87eba3d17?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property6",
       name: "Countryside Estate",
-      imageUrl:
-        "https://images.unsplash.com/photo-1605146768851-eda79da39897?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1605146768851-eda79da39897?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property7",
       name: "Skyscraper Condo",
-      imageUrl:
-        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property8",
       name: "Mountain Chalet",
-      imageUrl:
-        "https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property9",
       name: "Suburban Home",
-      imageUrl:
-        "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "property10",
       name: "Penthouse Suite",
-      imageUrl:
-        "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageUrl: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
@@ -205,12 +182,12 @@ async function loadProperties() {
     const propertyItem = document.createElement("div");
     propertyItem.className = "property-item";
     propertyItem.innerHTML = `
-    <div class="property-image">
-        <img src="${property.imageUrl}" alt="${property.name}">
-        <div class="overlay">Inquire Now</div>
-    </div>
-    <p>${property.name}</p>
-`;
+      <div class="property-image">
+          <img src="${property.imageUrl}" alt="${property.name}">
+          <div class="overlay">Inquire Now</div>
+      </div>
+      <p>${property.name}</p>
+    `;
 
     // Open the inquiry modal
     propertyItem.addEventListener("click", () => {
@@ -220,38 +197,47 @@ async function loadProperties() {
     });
 
     // Close the inquiry modal
-    document
-      .getElementById("close-inquiry-modal")
-      .addEventListener("click", () => {
-        document.getElementById("inquiry-modal").classList.add("hidden");
-      });
+    document.getElementById("close-inquiry-modal").addEventListener("click", () => {
+      document.getElementById("inquiry-modal").classList.add("hidden");
+    });
 
     propertyList.appendChild(propertyItem);
   });
 }
 
 // Submit inquiry
-document
-  .getElementById("submit-inquiry-btn")
-  .addEventListener("click", async () => {
-    const propertyId = document.getElementById("property-id").value;
-    const inquiryMessage = document.getElementById("inquiry-message").value;
-    const user = auth.currentUser;
+document.getElementById("submit-inquiry-btn").addEventListener("click", async () => {
+  const propertyId = document.getElementById("property-id").value;
+  const inquiryMessage = document.getElementById("inquiry-message").value;
+  const user = auth.currentUser;
 
-    if (user && propertyId && inquiryMessage) {
-      try {
-        await addDoc(collection(db, "inquiries"), {
-          userId: user.uid,
-          propertyId: propertyId,
-          message: inquiryMessage,
-          timestamp: new Date(),
-        });
-        alert("Inquiry submitted successfully");
-        document.getElementById("inquiry-modal").classList.add("hidden");
-      } catch (error) {
-        console.error("Error submitting inquiry: ", error);
-      }
-    } else {
-      alert("Please fill out the inquiry form completely.");
+  if (user && propertyId && inquiryMessage) {
+    try {
+      await addDoc(collection(db, "inquiries"), {
+        userId: user.uid,
+        propertyId: propertyId,
+        message: inquiryMessage,
+        timestamp: new Date(),
+      });
+      alert("Inquiry submitted successfully");
+      document.getElementById("inquiry-modal").classList.add("hidden");
+    } catch (error) {
+      console.error("Error submitting inquiry: ", error);
     }
-  });
+  } else {
+    alert("Please fill out the inquiry form completely.");
+  }
+});
+
+// Logout functionality
+document.getElementById("logout-btn").addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    console.log("User signed out successfully");
+    propertyListContainer.classList.add("hidden");
+    loginContainer.classList.remove("hidden");
+    signupContainer.classList.add("hidden");
+  } catch (error) {
+    console.error("Error signing out: ", error);
+  }
+});
